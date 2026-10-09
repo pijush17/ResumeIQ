@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeIQ - ATS Analyzer</title>
+
+    <link rel="stylesheet" href="ats.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            ResumeIQ
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Resume Builder</a>
+            <a href="ats.html" class="active">ATS Analyzer</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main ATS Section -->
+    <main class="ats-container">
+
+        <section class="hero-section">
+
+            <h1>ATS Resume Analyzer</h1>
+
+            <p>
+                Upload your resume and compare it with a job description
+                to see how well your resume matches the job.
+            </p>
+
+        </section>
+
+
+        <!-- Input Section -->
+        <section class="analyzer-section">
+
+            <!-- Resume Upload -->
+            <div class="input-card">
+
+                <h2>Upload Your Resume</h2>
+
+                <p class="card-description">
+                    Upload your resume in PDF format.
+                </p>
+
+                <div class="upload-area" id="uploadArea">
+
+                    <div class="upload-icon">
+                        📄
+                    </div>
+
+                    <h3>Drop your resume here</h3>
+
+                    <p>or</p>
+
+                    <label for="resumeFile" class="browse-button">
+                        Browse Files
+                    </label>
+
+                    <input
+                        type="file"
+                        id="resumeFile"
+                        accept=".pdf"
+                        hidden
+                    >
+
+                    <p id="fileName" class="file-name"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Job Description -->
+            <div class="input-card">
+
+                <h2>Job Description</h2>
+
+                <p class="card-description">
+                    Paste the job description you want to compare your resume against.
+                </p>
+
+                <textarea
+                    id="jobDescription"
+                    placeholder="Paste the job description here..."
+                ></textarea>
+
+                <div class="character-count">
+                    <span id="characterCount">0</span> characters
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Analyze Button -->
+        <section class="analyze-section">
+
+            <button id="analyzeButton">
+                Analyze Resume
+            </button>
+
+            <p id="analyzeMessage"></p>
+
+        </section>
+
+
+        <!-- Loading -->
+        <section id="loadingSection" class="loading-section hidden">
+
+            <div class="loader"></div>
+
+            <p>
+                Analyzing your resume...
+            </p>
+
+        </section>
+
+
+        <!-- Results -->
+        <section id="resultsSection" class="results-section hidden">
+
+            <div class="results-header">
+
+                <h2>ATS Analysis Result</h2>
+
+            </div>
+
+
+            <!-- Score -->
+            <div class="score-card">
+
+                <div class="score-circle">
+
+                    <span id="atsScore">
+                        0
+                    </span>
+
+                    <small>/100</small>
+
+                </div>
+
+                <div class="score-info">
+
+                    <h3 id="atsStatus">
+                        -
+                    </h3>
+
+                    <p>
+                        ATS Compatibility Score
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Keyword Match -->
+            <div class="result-card">
+
+                <h3>Keyword Match</h3>
+
+                <div class="progress-container">
+
+                    <div
+                        id="keywordProgress"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+                <p>
+                    <span id="keywordPercentage">0</span>% of
+                    job keywords found in your resume.
+                </p>
+
+            </div>
+
+
+            <!-- Matched Keywords -->
+            <div class="result-card">
+
+                <h3>✓ Matched Keywords</h3>
+
+                <div
+                    id="matchedKeywords"
+                    class="keyword-container"
+                ></div>
+
+            </div>
+
+
+            <!-- Missing Keywords -->
+            <div class="result-card">
+
+                <h3>⚠ Missing Keywords</h3>
+
+                <div
+                    id="missingKeywords"
+                    class="keyword-container"
+                ></div>
+
+            </div>
+
+
+            <!-- Suggestions -->
+            <div class="result-card">
+
+                <h3>💡 Suggestions</h3>
+
+                <ul id="suggestionsList"></ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="ats.js"></script>
+
+</body>
+</html>
