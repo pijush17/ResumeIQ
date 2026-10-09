@@ -1,0 +1,1 @@
+# ResumeIQ data models.
